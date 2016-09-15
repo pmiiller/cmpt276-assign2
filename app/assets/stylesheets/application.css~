@@ -39,6 +39,7 @@ p {
 .top{
   //*osition: absolute;
   right: 100px;*/
+  float: left;
   margin: auto;
   width: 95%;
   height: 300px;
