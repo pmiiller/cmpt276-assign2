@@ -14,6 +14,8 @@
  *= require_self
  */
 
+ /*
+
  body {
    background-color: white;
 }
@@ -62,7 +64,6 @@ p {
     position: absolute;
     right: 35%;
     left: 35%;
-    margin: inherit;
     width: 30%;
     font-size: 20px;*/
 }
@@ -74,3 +75,5 @@ p {
 .test{
   color: yellow;
 }
+
+/*
