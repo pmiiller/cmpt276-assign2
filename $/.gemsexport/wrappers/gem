@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if
+  [[ -s "$/.gemsexport/environment" ]]
+then
+  source "$/.gemsexport/environment"
+  exec gem "$@"
+else
+  echo "ERROR: Missing RVM environment file: '$/.gemsexport/environment'" >&2
+  exit 1
+fi

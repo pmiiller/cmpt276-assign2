@@ -14,7 +14,7 @@
  *= require_self
  */
 
- /*
+ 
 
  body {
    background-color: white;
@@ -62,7 +62,7 @@ p {
     right: 35%;
     left: 35%;
     width: 30%;
-    font-size: 20px;*/
+    font-size: 20px;
 }
 
 #timeTitle {
@@ -72,5 +72,3 @@ p {
 .test{
   color: yellow;
 }
-
-*/

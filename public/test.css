@@ -1,0 +1,41 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+
+body {border-left: 1px #000000 dotted;
+  background-color: rgb(180, 50, 50);
+}
+
+#main_body {
+  background-color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 500px;
+}
+
+#bottom_stripe {
+  position: absolute;
+  top: 500px;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  height: 40px;
+  background-color: rgb(30, 30, 30);
+}
+
+.grey_stripe {
+  background-color: rgb(30, 30, 30);
+}
+
+h1 {
+
+  margin-left: 5%
+
+}
