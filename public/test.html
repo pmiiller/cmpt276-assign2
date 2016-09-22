@@ -14,13 +14,96 @@
     <p> &nbsp; </p>
     <p> &nbsp; </p>
     <h1> Grade Calculator </h1>
-    <input type="text" name="txt" id="txt"/>
-    <input type="button" onclick="retrieve('txt');"/>
-    <button type="button"
-    onclick="document.getElementById('txt').innerHTML = Date()" class = timeButton>
-    Click me to display Date and Time.</button>
-    <p></p>
-    <p id="txt"></p>
+    <p> &nbsp; </p>
+
+    <div id = "calculator">
+
+      <h2> Activities </h2>
+      <p> &nbsp; </p>
+      <p> Give grades to the numeric activities: </p>
+      <p> &nbsp; </p>
+
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Short Name</th>
+          <th>Weight</th>
+          <th>Grade</th>
+          <th>Percent</th>
+        </tr>
+        <tr>
+          <td>Activity 1</td>
+          <td>A1</td>
+          <td>
+            <input type="text" name="weight1" size = "1" id="weight1"/>
+          </td>
+          <td>
+            <input type="text" name="gradeTop1" size = "1" id="gradeTop1"/> /
+            <input type="text" name="gradeBottom1" size = "1" id="gradeBottom1"/>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Activity 2</td>
+          <td>A2</td>
+          <td>
+            <input type="text" name="weight2" size = "1" id="weight2"/>
+          </td>
+          <td>
+            <input type="text" name="gradeTop2" size = "1" id="gradeTop2"/> /
+            <input type="text" name="gradeBottom2" size = "1" id="gradeBottom2"/>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Activity 3</td>
+          <td>A3</td>
+          <td>
+            <input type="text" name="weight3" size = "1" id="weight3"/>
+          </td>
+          <td>
+            <input type="text" name="gradeTop3" size = "1" id="gradeTop3"/> /
+            <input type="text" name="gradeBottom3" size = "1" id="gradeBottom3"/>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Activity 4</td>
+          <td>A4</td>
+          <td>
+            <input type="text" name="weight4" size = "1" id="weight4"/>
+          </td>
+          <td>
+            <input type="text" name="gradeTop4" size = "1" id="gradeTop4"/> /
+            <input type="text" name="gradeBottom4" size = "1" id="gradeBottom4"/>
+          </td>
+          <td></td>
+        </tr>
+      </table>
+
+      <p> &nbsp; </p>
+      <h2>Result</h2>
+      <p> &nbsp; </p>
+      <p id = "result"></p>
+
+      <div id = "bottom_buttons">
+
+        <script type="text/javascript">
+          document.getElementById('weight1').value = '';
+        </script>
+        <input type="button" value="Press Me" onclick="retrieve('weight1'); document.getElementById('result').innerHTML = retrieve('weight1')""Press Me"/>
+        <button type="button"
+        onclick="document.getElementById('result').innerHTML = 'txt'" class = timeButton>
+        Test</button>
+        <p id="txt"></p>
+        <script>
+          document.getElementById("result").innerHTML = '&nbsp' ;
+        </script>
+
+      </div>
+
+    </div>
+
   </div>
 
   <div id = "bottom_stripe">
