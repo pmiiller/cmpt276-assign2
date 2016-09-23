@@ -35,11 +35,11 @@
           <td>Activity 1</td>
           <td>A1</td>
           <td>
-            <input type="text" name="weight1" size = "1" id="weight1"/>
+            <input type="text" name="weight1" size = "2" id="weight1"/>
           </td>
           <td>
-            <input type="text" name="gradeTop1" size = "1" id="gradeTop1"/> /
-            <input type="text" name="gradeBottom1" size = "1" id="gradeBottom1"/>
+            <input type="text" name="gradeTop1" size = "2" id="gradeTop1"/> /
+            <input type="text" name="gradeBottom1" size = "2" id="gradeBottom1"/>
           </td>
           <td></td>
         </tr>
@@ -47,11 +47,11 @@
           <td>Activity 2</td>
           <td>A2</td>
           <td>
-            <input type="text" name="weight2" size = "1" id="weight2"/>
+            <input type="text" name="weight2" size = "2" id="weight2"/>
           </td>
           <td>
-            <input type="text" name="gradeTop2" size = "1" id="gradeTop2"/> /
-            <input type="text" name="gradeBottom2" size = "1" id="gradeBottom2"/>
+            <input type="text" name="gradeTop2" size = "2" id="gradeTop2"/> /
+            <input type="text" name="gradeBottom2" size = "2" id="gradeBottom2"/>
           </td>
           <td></td>
         </tr>
@@ -59,11 +59,11 @@
           <td>Activity 3</td>
           <td>A3</td>
           <td>
-            <input type="text" name="weight3" size = "1" id="weight3"/>
+            <input type="text" name="weight3" size = "2" id="weight3"/>
           </td>
           <td>
-            <input type="text" name="gradeTop3" size = "1" id="gradeTop3"/> /
-            <input type="text" name="gradeBottom3" size = "1" id="gradeBottom3"/>
+            <input type="text" name="gradeTop3" size = "2" id="gradeTop3"/> /
+            <input type="text" name="gradeBottom3" size = "2" id="gradeBottom3"/>
           </td>
           <td></td>
         </tr>
@@ -71,11 +71,11 @@
           <td>Activity 4</td>
           <td>A4</td>
           <td>
-            <input type="text" name="weight4" size = "1" id="weight4"/>
+            <input type="text" name="weight4" size = "2" id="weight4"/>
           </td>
           <td>
-            <input type="text" name="gradeTop4" size = "1" id="gradeTop4"/> /
-            <input type="text" name="gradeBottom4" size = "1" id="gradeBottom4"/>
+            <input type="text" name="gradeTop4" size = "2" id="gradeTop4"/> /
+            <input type="text" name="gradeBottom4" size = "2" id="gradeBottom4"/>
           </td>
           <td></td>
         </tr>
@@ -91,11 +91,9 @@
         <script type="text/javascript">
           document.getElementById('weight1').value = '';
         </script>
-        <input type="button" value="Press Me" onclick="retrieve('weight1'); document.getElementById('result').innerHTML = retrieve('weight1')""Press Me"/>
-        <button type="button"
-        onclick="document.getElementById('result').innerHTML = 'txt'" class = timeButton>
-        Test</button>
-        <p id="txt"></p>
+        <input type="button" class="button" value="WEIGHTED" onclick="document.getElementById('result').innerHTML = retrieve('weight1')"/>
+        <input type="button" class="button" value="MEAN"
+        onclick="document.getElementById('result').innerHTML = mean()"/>
         <script>
           document.getElementById("result").innerHTML = '&nbsp' ;
         </script>
