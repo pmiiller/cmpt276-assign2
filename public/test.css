@@ -16,7 +16,6 @@ body {
   background-color: white;
   margin:auto;
   width:90%;
-  height: 700px;
 }
 
 #calculator {
@@ -28,7 +27,6 @@ body {
   padding: 12px;
   padding-top: 20px;
   padding-bottom: 20px;
-  height: 500px;
 }
 
 #bottom_buttons {
@@ -39,11 +37,6 @@ body {
 }
 
 #bottom_stripe {
-  position: absolute;
-  top:700px;
-  margin-left: 5%;
-  margin-right: 5%;
-  width: 90%;
   height: 40px;
   background-color: rgb(50, 50, 50);
 }
