@@ -1,0 +1,27 @@
+<%= form_tag say_hello_path do %>
+  <label for="name">Name</label>
+  <br></br>
+  <%= text_field_tag :name %>
+  <br></br>
+  <label for="statement">Statement</label>
+  <br></br>
+  <%= text_field_tag :statement %>
+  <br></br>
+  <%= submit_tag "Submit" %>
+  <%#=<input id="rock" name="rock" type="checkbox" value="rock music" />=%>
+<% end %>
+
+<%= form_tag say_goodbye_path do %>
+  <label for="name">Name</label>
+  <br></br>
+  <%= text_field_tag :name %>
+  <br></br>
+  <label for="statement">Statement</label>
+  <br></br>
+  <%= text_field_tag :statement %>
+  <br></br>
+  <%= submit_tag "Submit" %>
+<% end %>
+
+
+<%= check_box_tag 'rock', 'rock music'%>
