@@ -5,11 +5,15 @@ class TrainersController < ApplicationController
   # GET /trainers.json
   def index
     @trainers = Trainer.all
+    @trainers.each do |trainer|
+      trainer.level = trainer.tokimons.size / 3
+    end
   end
 
   # GET /trainers/1
   # GET /trainers/1.json
   def show
+    @trainer.level = @trainer.tokimons.size / 3
   end
 
   # GET /trainers/new
@@ -25,6 +29,7 @@ class TrainersController < ApplicationController
   # POST /trainers.json
   def create
     @trainer = Trainer.new(trainer_params)
+    @trainer.level = 0
 
     respond_to do |format|
       if @trainer.save
@@ -54,6 +59,9 @@ class TrainersController < ApplicationController
   # DELETE /trainers/1
   # DELETE /trainers/1.json
   def destroy
+    (0..@trainer.tokimons.size-1).each do |i|
+      @trainer.tokimons[i].destroy
+    end
     @trainer.destroy
     respond_to do |format|
       format.html { redirect_to trainers_url, notice: 'Trainer was successfully destroyed.' }
@@ -71,4 +79,4 @@ class TrainersController < ApplicationController
     def trainer_params
       params.require(:trainer).permit(:tname, :level)
     end
-end
+  end

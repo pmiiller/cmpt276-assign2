@@ -26,6 +26,10 @@ class TokimonsController < ApplicationController
   def create
     @tokimon = Tokimon.new(tokimon_params)
 
+
+    @tokimon.trainer = Trainer.find(tokimon_params[:trainer_id])
+    @tokimon.total = @tokimon.fly + @tokimon.fight + @tokimon.fire + @tokimon.water + @tokimon.electric + @tokimon.ice
+
     respond_to do |format|
       if @tokimon.save
         format.html { redirect_to @tokimon, notice: 'Tokimon was successfully created.' }

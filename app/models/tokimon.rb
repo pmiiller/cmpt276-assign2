@@ -1,6 +1,6 @@
 class Tokimon < ActiveRecord::Base
 end
 
-class Trainer < ActiveRecord::Base
-  has_many :tokimons
+class Tokimon < ActiveRecord::Base
+  belongs_to :trainer
 end
