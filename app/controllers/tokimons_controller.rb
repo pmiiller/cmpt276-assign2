@@ -25,18 +25,45 @@ class TokimonsController < ApplicationController
   # POST /tokimons.json
   def create
     @tokimon = Tokimon.new(tokimon_params)
-
-
-    @tokimon.trainer = Trainer.find(tokimon_params[:trainer_id])
-    @tokimon.total = @tokimon.fly + @tokimon.fight + @tokimon.fire + @tokimon.water + @tokimon.electric + @tokimon.ice
-
-    respond_to do |format|
-      if @tokimon.save
-        format.html { redirect_to @tokimon, notice: 'Tokimon was successfully created.' }
-        format.json { render :show, status: :created, location: @tokimon }
-      else
+    if @tokimon.trainer_id == nil
+      respond_to do |format|
+        @tokimon.destroy
+        flash.now[:notice] = "Select a Trainer (if no trainer exists, please make one first)."
         format.html { render :new }
         format.json { render json: @tokimon.errors, status: :unprocessable_entity }
+      end
+    elsif @tokimon.fly == nil || @tokimon.fight == nil || @tokimon.fire == nil || @tokimon.water == nil || @tokimon.electric == nil || @tokimon.ice == nil || @tokimon.height == nil || @tokimon.weight == nil
+      respond_to do |format|
+        @tokimon.destroy
+        flash.now[:notice] = "Please fill out all fields."
+        format.html { render :new }
+        format.json { render json: @tokimon.errors, status: :unprocessable_entity }
+      end
+    elsif @tokimon.fly > 100 || @tokimon.fly < 0 || @tokimon.fight > 100 || @tokimon.fight < 0 || @tokimon.fire > 100 || @tokimon.fire < 0 || @tokimon.water > 100 || @tokimon.water < 0 || @tokimon.electric > 100 || @tokimon.electric < 0 || @tokimon.ice > 100 || @tokimon.ice < 0
+      respond_to do |format|
+        @tokimon.destroy
+        flash.now[:notice] = "Fly, Fight, Fire, Water, Electric, and Ice must be between 0 and 100."
+        format.html { render :new }
+        format.json { render json: @tokimon.errors, status: :unprocessable_entity }
+      end
+    elsif @tokimon.height < 0 || @tokimon.weight < 0
+        respond_to do |format|
+          @tokimon.destroy
+          flash.now[:notice] = "Height and Weight cannot be negative."
+          format.html { render :new }
+          format.json { render json: @tokimon.errors, status: :unprocessable_entity }
+        end
+    else
+      @tokimon.trainer = Trainer.find(tokimon_params[:trainer_id])
+      @tokimon.total = @tokimon.fly + @tokimon.fight + @tokimon.fire + @tokimon.water + @tokimon.electric + @tokimon.ice
+      respond_to do |format|
+        if @tokimon.save
+          format.html { redirect_to @tokimon, notice: 'Tokimon was successfully created.' }
+          format.json { render :show, status: :created, location: @tokimon }
+        else
+          format.html { render :new }
+          format.json { render json: @tokimon.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -44,13 +71,43 @@ class TokimonsController < ApplicationController
   # PATCH/PUT /tokimons/1
   # PATCH/PUT /tokimons/1.json
   def update
-    respond_to do |format|
-      if @tokimon.update(tokimon_params)
-        format.html { redirect_to @tokimon, notice: 'Tokimon was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tokimon }
-      else
+    if @tokimon.trainer_id == nil
+      respond_to do |format|
+        @tokimon.destroy
+        flash.now[:notice] = "Select a Trainer (if no trainer exists, please make one first)."
         format.html { render :edit }
         format.json { render json: @tokimon.errors, status: :unprocessable_entity }
+      end
+    elsif @tokimon.fly == nil || @tokimon.fight == nil || @tokimon.fire == nil || @tokimon.water == nil || @tokimon.electric == nil || @tokimon.ice == nil || @tokimon.height == nil || @tokimon.weight == nil
+      respond_to do |format|
+        @tokimon.destroy
+        flash.now[:notice] = "Please fill out all fields."
+        format.html { render :edit }
+        format.json { render json: @tokimon.errors, status: :unprocessable_entity }
+      end
+    elsif @tokimon.fly > 100 || @tokimon.fly < 0 || @tokimon.fight > 100 || @tokimon.fight < 0 || @tokimon.fire > 100 || @tokimon.fire < 0 || @tokimon.water > 100 || @tokimon.water < 0 || @tokimon.electric > 100 || @tokimon.electric < 0 || @tokimon.ice > 100 || @tokimon.ice < 0
+      respond_to do |format|
+        @tokimon.destroy
+        flash.now[:notice] = "Fly, Fight, Fire, Water, Electric, and Ice must be between 0 and 100."
+        format.html { render :edit }
+        format.json { render json: @tokimon.errors, status: :unprocessable_entity }
+      end
+    elsif @tokimon.height < 0 || @tokimon.weight < 0
+        respond_to do |format|
+          @tokimon.destroy
+          flash.now[:notice] = "Height and Weight cannot be negative."
+          format.html { render :edit }
+          format.json { render json: @tokimon.errors, status: :unprocessable_entity }
+        end
+    else
+      respond_to do |format|
+        if @tokimon.update(tokimon_params)
+          format.html { redirect_to @tokimon, notice: 'Tokimon was successfully updated.' }
+          format.json { render :show, status: :ok, location: @tokimon }
+        else
+          format.html { render :edit }
+          format.json { render json: @tokimon.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <%= form_for(@trainer) do |f| %>
   <% if @trainer.errors.any? %>
     <div id="error_explanation">
@@ -12,7 +14,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :tname %><br>
+    <%= f.label :Trainer_Name %><br>
     <%= f.text_field :tname %>
   </div>
   <div class="field">

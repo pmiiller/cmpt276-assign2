@@ -31,13 +31,22 @@ class TrainersController < ApplicationController
     @trainer = Trainer.new(trainer_params)
     @trainer.level = 0
 
-    respond_to do |format|
-      if @trainer.save
-        format.html { redirect_to @trainer, notice: 'Trainer was successfully created.' }
-        format.json { render :show, status: :created, location: @trainer }
-      else
+    if @trainer.tname.blank?
+      respond_to do |format|
+        @trainer.destroy
+        flash.now[:notice] = "Please enter a Name."
         format.html { render :new }
         format.json { render json: @trainer.errors, status: :unprocessable_entity }
+      end
+    else
+      respond_to do |format|
+        if @trainer.save
+          format.html { redirect_to @trainer, notice: 'Trainer was successfully created.' }
+          format.json { render :show, status: :created, location: @trainer }
+        else
+          format.html { render :new }
+          format.json { render json: @trainer.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

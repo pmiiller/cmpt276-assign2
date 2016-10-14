@@ -14,49 +14,6 @@ body {
 
 }
 
-#main_body {
-
-  background-color: white;
-  margin:auto;
-  width:90%;
-
-}
-
-#calculator {
-
-  position: relative;
-  background-color: rgb(240, 245, 245);
-  border: 1px solid rgb(180, 180, 180);
-  margin-left: 30px;
-  width: 750px;
-  padding: 12px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-
-}
-
-#bottom_buttons {
-
-  float:right;
-  position: absolute;
-  bottom: 20px;
-  right: 12px;
-
-}
-
-#bottom_stripe {
-
-  height: 40px;
-  background-color: rgb(50, 50, 50);
-
-}
-
-.grey_stripe {
-
-  background-color: rgb(50, 50, 50);
-
-}
-
 table {
 
   font-family: Times, serif;
@@ -88,19 +45,10 @@ th {
 
 input {
 
-  width: 80px;
+  width: 100px;
   height: 30px;
   background-color: white;
   margin-top: 8px;
-
-}
-
-.button {
-
-  width: auto;
-  height: 25px;
-  background-color: rgb(180, 50, 50);
-  color: white;
 
 }
 
@@ -126,4 +74,9 @@ p {
   font-family: Times, serif;
   font-size: 16px;
 
+}
+
+#notice {
+  padding: 10px;
+  color: rgb(200, 10, 10);
 }
