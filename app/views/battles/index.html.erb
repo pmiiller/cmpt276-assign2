@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Battles</h1>
+<h1>Battles</h1>
+<p>Tokimon fighting was, of course, outlawed by the Regional Tokimon Cruelty Act of 2031.</p>
+<p>However, this battle program presents a realistic simulation of what Tokimon Battles might have been like.</p>
+<br>&nbsp;</br>
+<p>Tokimons keep fighting until one faints from exhaustion.</p>
+<p>Tokimon take turns hitting each other with attacks.</p>
+<p>Tokimon with high stats are able to block an opponents attacks.</p>
+<br>&nbsp;</br>
 
 <table>
   <thead>
@@ -8,7 +15,7 @@
       <th>Tokimon 1</th>
       <th>Tokimon 2</th>
       <th>Winner</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -16,22 +23,33 @@
     <% @battles.each do |battle| %>
       <tr>
         <td>
-          <%= link_to Tokimon.find(battle.tokimon1).name, tokimon_path(battle.tokimon1) %>
+          <% if !Tokimon.exists?(battle.tokimon1) %>
+            TOKIMON_NOT_FOUND
+          <% else %>
+            <%= link_to Tokimon.find(battle.tokimon1).name, tokimon_path(battle.tokimon1) %>
+          <% end %>
         </td>
         <td>
-          <%= link_to Tokimon.find(battle.tokimon2).name, tokimon_path(battle.tokimon2) %>
+          <% if !Tokimon.exists?(battle.tokimon2) %>
+          TOKIMON_NOT_FOUND
+        <% else %>
+            <%= link_to Tokimon.find(battle.tokimon2).name, tokimon_path(battle.tokimon2) %>
+          <% end %>
         </td>
         <td>
-          <%= link_to Tokimon.find(battle.winner).name, tokimon_path(battle.winner) %>
+          <% if !Tokimon.exists?(battle.winner) %>
+            TOKIMON_NOT_FOUND
+          <% else %>
+            <%= link_to Tokimon.find(battle.winner).name, tokimon_path(battle.winner) %>
+          <% end %>
         </td>
         <td><%= link_to 'Show', battle %></td>
-        <td><%= link_to 'Edit', edit_battle_path(battle) %></td>
         <td><%= link_to 'Destroy', battle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<br>&nbsp;</br>
 
 <%= link_to 'New Battle', new_battle_path %>

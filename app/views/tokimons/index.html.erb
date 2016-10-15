@@ -1,49 +1,505 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Tokimons</h1>
+<h1>Tokimons</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Weight</th>
-      <th>Height</th>
-      <th>Fly</th>
-      <th>Fight</th>
-      <th>Fire</th>
-      <th>Water</th>
-      <th>Electric</th>
-      <th>Ice</th>
-      <th>Total</th>
-      <th>Trainer</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tokimons.each do |tokimon| %>
+<div id="nameDiv">
+  <table>
+    <thead>
       <tr>
-        <td><%= tokimon.name %></td>
-        <td><%= tokimon.weight %></td>
-        <td><%= tokimon.height %></td>
-        <td><%= tokimon.fly %></td>
-        <td><%= tokimon.fight %></td>
-        <td><%= tokimon.fire %></td>
-        <td><%= tokimon.water %></td>
-        <td><%= tokimon.electric %></td>
-        <td><%= tokimon.ice %></td>
-        <td><%= tokimon.total %></td>
-        <td>
-          <%= link_to Trainer.find(tokimon.trainer_id).tname, trainer_path(tokimon.trainer_id) %>
-        </td>
-        <td><%= link_to 'Show', tokimon %></td>
-        <td><%= link_to 'Edit', edit_tokimon_path(tokimon) %></td>
-        <td><%= link_to 'Destroy', tokimon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Fly</th>
+        <th>Fight</th>
+        <th>Fire</th>
+        <th>Water</th>
+        <th>Electric</th>
+        <th>Ice</th>
+        <th>Total</th>
+        <th>Trainer</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @tokimons.order("name").each do |tokimon| %>
+        <tr>
+          <td><%= tokimon.name %></td>
+          <td><%= tokimon.weight %></td>
+          <td><%= tokimon.height %></td>
+          <td><%= tokimon.fly %></td>
+          <td><%= tokimon.fight %></td>
+          <td><%= tokimon.fire %></td>
+          <td><%= tokimon.water %></td>
+          <td><%= tokimon.electric %></td>
+          <td><%= tokimon.ice %></td>
+          <td><%= tokimon.total %></td>
+          <td>
+            <%= link_to Trainer.find(tokimon.trainer_id).tname, trainer_path(tokimon.trainer_id) %>
+          </td>
+          <td><%= link_to 'Show', tokimon %></td>
+          <td><%= link_to 'Edit', edit_tokimon_path(tokimon) %></td>
+          <td><%= link_to 'Destroy', tokimon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="weightDiv"  style="display:none;">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Fly</th>
+        <th>Fight</th>
+        <th>Fire</th>
+        <th>Water</th>
+        <th>Electric</th>
+        <th>Ice</th>
+        <th>Total</th>
+        <th>Trainer</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tokimons.order("weight").each do |tokimon| %>
+        <tr>
+          <td><%= tokimon.name %></td>
+          <td><%= tokimon.weight %></td>
+          <td><%= tokimon.height %></td>
+          <td><%= tokimon.fly %></td>
+          <td><%= tokimon.fight %></td>
+          <td><%= tokimon.fire %></td>
+          <td><%= tokimon.water %></td>
+          <td><%= tokimon.electric %></td>
+          <td><%= tokimon.ice %></td>
+          <td><%= tokimon.total %></td>
+          <td>
+            <%= link_to Trainer.find(tokimon.trainer_id).tname, trainer_path(tokimon.trainer_id) %>
+          </td>
+          <td><%= link_to 'Show', tokimon %></td>
+          <td><%= link_to 'Edit', edit_tokimon_path(tokimon) %></td>
+          <td><%= link_to 'Destroy', tokimon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="heightDiv"  style="display:none;">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Fly</th>
+        <th>Fight</th>
+        <th>Fire</th>
+        <th>Water</th>
+        <th>Electric</th>
+        <th>Ice</th>
+        <th>Total</th>
+        <th>Trainer</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tokimons.order("height").each do |tokimon| %>
+        <tr>
+          <td><%= tokimon.name %></td>
+          <td><%= tokimon.weight %></td>
+          <td><%= tokimon.height %></td>
+          <td><%= tokimon.fly %></td>
+          <td><%= tokimon.fight %></td>
+          <td><%= tokimon.fire %></td>
+          <td><%= tokimon.water %></td>
+          <td><%= tokimon.electric %></td>
+          <td><%= tokimon.ice %></td>
+          <td><%= tokimon.total %></td>
+          <td>
+            <%= link_to Trainer.find(tokimon.trainer_id).tname, trainer_path(tokimon.trainer_id) %>
+          </td>
+          <td><%= link_to 'Show', tokimon %></td>
+          <td><%= link_to 'Edit', edit_tokimon_path(tokimon) %></td>
+          <td><%= link_to 'Destroy', tokimon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="flyDiv"  style="display:none;">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Fly</th>
+        <th>Fight</th>
+        <th>Fire</th>
+        <th>Water</th>
+        <th>Electric</th>
+        <th>Ice</th>
+        <th>Total</th>
+        <th>Trainer</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tokimons.order("fly").each do |tokimon| %>
+        <tr>
+          <td><%= tokimon.name %></td>
+          <td><%= tokimon.weight %></td>
+          <td><%= tokimon.height %></td>
+          <td><%= tokimon.fly %></td>
+          <td><%= tokimon.fight %></td>
+          <td><%= tokimon.fire %></td>
+          <td><%= tokimon.water %></td>
+          <td><%= tokimon.electric %></td>
+          <td><%= tokimon.ice %></td>
+          <td><%= tokimon.total %></td>
+          <td>
+            <%= link_to Trainer.find(tokimon.trainer_id).tname, trainer_path(tokimon.trainer_id) %>
+          </td>
+          <td><%= link_to 'Show', tokimon %></td>
+          <td><%= link_to 'Edit', edit_tokimon_path(tokimon) %></td>
+          <td><%= link_to 'Destroy', tokimon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="fightDiv"  style="display:none;">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Fly</th>
+        <th>Fight</th>
+        <th>Fire</th>
+        <th>Water</th>
+        <th>Electric</th>
+        <th>Ice</th>
+        <th>Total</th>
+        <th>Trainer</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tokimons.order("fight").each do |tokimon| %>
+        <tr>
+          <td><%= tokimon.name %></td>
+          <td><%= tokimon.weight %></td>
+          <td><%= tokimon.height %></td>
+          <td><%= tokimon.fly %></td>
+          <td><%= tokimon.fight %></td>
+          <td><%= tokimon.fire %></td>
+          <td><%= tokimon.water %></td>
+          <td><%= tokimon.electric %></td>
+          <td><%= tokimon.ice %></td>
+          <td><%= tokimon.total %></td>
+          <td>
+            <%= link_to Trainer.find(tokimon.trainer_id).tname, trainer_path(tokimon.trainer_id) %>
+          </td>
+          <td><%= link_to 'Show', tokimon %></td>
+          <td><%= link_to 'Edit', edit_tokimon_path(tokimon) %></td>
+          <td><%= link_to 'Destroy', tokimon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="fireDiv"  style="display:none;">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Fly</th>
+        <th>Fight</th>
+        <th>Fire</th>
+        <th>Water</th>
+        <th>Electric</th>
+        <th>Ice</th>
+        <th>Total</th>
+        <th>Trainer</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tokimons.order("fire").each do |tokimon| %>
+        <tr>
+          <td><%= tokimon.name %></td>
+          <td><%= tokimon.weight %></td>
+          <td><%= tokimon.height %></td>
+          <td><%= tokimon.fly %></td>
+          <td><%= tokimon.fight %></td>
+          <td><%= tokimon.fire %></td>
+          <td><%= tokimon.water %></td>
+          <td><%= tokimon.electric %></td>
+          <td><%= tokimon.ice %></td>
+          <td><%= tokimon.total %></td>
+          <td>
+            <%= link_to Trainer.find(tokimon.trainer_id).tname, trainer_path(tokimon.trainer_id) %>
+          </td>
+          <td><%= link_to 'Show', tokimon %></td>
+          <td><%= link_to 'Edit', edit_tokimon_path(tokimon) %></td>
+          <td><%= link_to 'Destroy', tokimon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+<div id="waterDiv"  style="display:none;">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Fly</th>
+        <th>Fight</th>
+        <th>Fire</th>
+        <th>Water</th>
+        <th>Electric</th>
+        <th>Ice</th>
+        <th>Total</th>
+        <th>Trainer</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tokimons.order("water").each do |tokimon| %>
+        <tr>
+          <td><%= tokimon.name %></td>
+          <td><%= tokimon.weight %></td>
+          <td><%= tokimon.height %></td>
+          <td><%= tokimon.fly %></td>
+          <td><%= tokimon.fight %></td>
+          <td><%= tokimon.fire %></td>
+          <td><%= tokimon.water %></td>
+          <td><%= tokimon.electric %></td>
+          <td><%= tokimon.ice %></td>
+          <td><%= tokimon.total %></td>
+          <td>
+            <%= link_to Trainer.find(tokimon.trainer_id).tname, trainer_path(tokimon.trainer_id) %>
+          </td>
+          <td><%= link_to 'Show', tokimon %></td>
+          <td><%= link_to 'Edit', edit_tokimon_path(tokimon) %></td>
+          <td><%= link_to 'Destroy', tokimon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="electricDiv"  style="display:none;">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Fly</th>
+        <th>Fight</th>
+        <th>Fire</th>
+        <th>Water</th>
+        <th>Electric</th>
+        <th>Ice</th>
+        <th>Total</th>
+        <th>Trainer</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tokimons.order("electric").each do |tokimon| %>
+        <tr>
+          <td><%= tokimon.name %></td>
+          <td><%= tokimon.weight %></td>
+          <td><%= tokimon.height %></td>
+          <td><%= tokimon.fly %></td>
+          <td><%= tokimon.fight %></td>
+          <td><%= tokimon.fire %></td>
+          <td><%= tokimon.water %></td>
+          <td><%= tokimon.electric %></td>
+          <td><%= tokimon.ice %></td>
+          <td><%= tokimon.total %></td>
+          <td>
+            <%= link_to Trainer.find(tokimon.trainer_id).tname, trainer_path(tokimon.trainer_id) %>
+          </td>
+          <td><%= link_to 'Show', tokimon %></td>
+          <td><%= link_to 'Edit', edit_tokimon_path(tokimon) %></td>
+          <td><%= link_to 'Destroy', tokimon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="iceDiv"  style="display:none;">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Fly</th>
+        <th>Fight</th>
+        <th>Fire</th>
+        <th>Water</th>
+        <th>Electric</th>
+        <th>Ice</th>
+        <th>Total</th>
+        <th>Trainer</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tokimons.order("ice").each do |tokimon| %>
+        <tr>
+          <td><%= tokimon.name %></td>
+          <td><%= tokimon.weight %></td>
+          <td><%= tokimon.height %></td>
+          <td><%= tokimon.fly %></td>
+          <td><%= tokimon.fight %></td>
+          <td><%= tokimon.fire %></td>
+          <td><%= tokimon.water %></td>
+          <td><%= tokimon.electric %></td>
+          <td><%= tokimon.ice %></td>
+          <td><%= tokimon.total %></td>
+          <td>
+            <%= link_to Trainer.find(tokimon.trainer_id).tname, trainer_path(tokimon.trainer_id) %>
+          </td>
+          <td><%= link_to 'Show', tokimon %></td>
+          <td><%= link_to 'Edit', edit_tokimon_path(tokimon) %></td>
+          <td><%= link_to 'Destroy', tokimon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="totalDiv"  style="display:none;">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Fly</th>
+        <th>Fight</th>
+        <th>Fire</th>
+        <th>Water</th>
+        <th>Electric</th>
+        <th>Ice</th>
+        <th>Total</th>
+        <th>Trainer</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tokimons.order("total").each do |tokimon| %>
+        <tr>
+          <td><%= tokimon.name %></td>
+          <td><%= tokimon.weight %></td>
+          <td><%= tokimon.height %></td>
+          <td><%= tokimon.fly %></td>
+          <td><%= tokimon.fight %></td>
+          <td><%= tokimon.fire %></td>
+          <td><%= tokimon.water %></td>
+          <td><%= tokimon.electric %></td>
+          <td><%= tokimon.ice %></td>
+          <td><%= tokimon.total %></td>
+          <td>
+            <%= link_to Trainer.find(tokimon.trainer_id).tname, trainer_path(tokimon.trainer_id) %>
+          </td>
+          <td><%= link_to 'Show', tokimon %></td>
+          <td><%= link_to 'Edit', edit_tokimon_path(tokimon) %></td>
+          <td><%= link_to 'Destroy', tokimon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="trainerDiv"  style="display:none;">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Fly</th>
+        <th>Fight</th>
+        <th>Fire</th>
+        <th>Water</th>
+        <th>Electric</th>
+        <th>Ice</th>
+        <th>Total</th>
+        <th>Trainer</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tokimons.order("trainer_id").each do |tokimon| %>
+        <tr>
+          <td><%= tokimon.name %></td>
+          <td><%= tokimon.weight %></td>
+          <td><%= tokimon.height %></td>
+          <td><%= tokimon.fly %></td>
+          <td><%= tokimon.fight %></td>
+          <td><%= tokimon.fire %></td>
+          <td><%= tokimon.water %></td>
+          <td><%= tokimon.electric %></td>
+          <td><%= tokimon.ice %></td>
+          <td><%= tokimon.total %></td>
+          <td>
+            <%= link_to Trainer.find(tokimon.trainer_id).tname, trainer_path(tokimon.trainer_id) %>
+          </td>
+          <td><%= link_to 'Show', tokimon %></td>
+          <td><%= link_to 'Edit', edit_tokimon_path(tokimon) %></td>
+          <td><%= link_to 'Destroy', tokimon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<input type="button" class="sorter" value="Sort by Name" onclick="showDiv('nameDiv')" />
+<input type="button" class="sorter" value="Sort by Weight" onclick="showDiv('weightDiv')" />
+<input type="button" class="sorter" value="Sort by Height" onclick="showDiv('heightDiv')" />
+<input type="button" class="sorter" value="Sort by Fly" onclick="showDiv('flyDiv')" />
+<input type="button" class="sorter" value="Sort by Fight" onclick="showDiv('fightDiv')" />
+<input type="button" class="sorter" value="Sort by Fire" onclick="showDiv('fireDiv')" />
+<input type="button" class="sorter" value="Sort by Water" onclick="showDiv('waterDiv')" />
+<input type="button" class="sorter" value="Sort by Electric" onclick="showDiv('electricDiv')" />
+<input type="button" class="sorter" value="Sort by Ice" onclick="showDiv('iceDiv')" />
+<input type="button" class="sorter" value="Sort by Total" onclick="showDiv('totalDiv')" />
+<input type="button" class="sorter" value="Sort by Trainer ID" onclick="showDiv('trainerDiv')" />
+
+<br>&nbsp;</br>
+
 
 <%= link_to 'New Tokimon', new_tokimon_path %>

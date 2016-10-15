@@ -40,8 +40,8 @@ class BattlesController < ApplicationController
       turn = 1
       attacker = tok1
       defender = tok2
-      message = "#{tok1.name} HP: #{hp1}"
-      message += "\n#{tok2.name} HP: #{hp2}"
+      message = "#{tok1.name}'s HP: #{hp1}"
+      message += "\n#{tok2.name}'s HP: #{hp2}"
       while hp1 > 0 && hp2 > 0
         roll = rand(0..5)
           if roll == 0
@@ -122,10 +122,13 @@ class BattlesController < ApplicationController
         if turn == 1000
           hp1 = 0
         end
+        message += "\n#{tok1.name}'s HP: #{hp1}   #{tok2.name}'s HP:#{hp2}"
         if hp1 <= 0
           @battle.winner = @battle.tokimon2
-        else hp2 <= 0
+          message += "\n#{tok1.name} has fainted. #{tok2.name} is the winner.\n"
+        elsif hp2 <= 0
           @battle.winner = @battle.tokimon1
+          message += "\n#{tok2.name} has fainted. #{tok1.name} is the winner.\n"
         end
       end
       respond_to do |format|

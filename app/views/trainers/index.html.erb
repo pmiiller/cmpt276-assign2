@@ -1,31 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Trainers</h1>
+<h1>Trainers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Trainer Name</th>
-      <th>Level</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @trainers.each do |trainer| %>
+<div id="trainerDiv">
+  <table>
+    <thead>
       <tr>
-        <td><%= trainer.tname %></td>
-        <td><%= trainer.level %></td>
-        <td><%= link_to 'Show', trainer %></td>
-        <td><%= link_to 'Edit', edit_trainer_path(trainer) %></td>
-        <td><%= link_to 'Destroy', trainer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Trainer Name</th>
+        <th>Level</th>
+        <th colspan="3"></th>
       </tr>
-      </tr>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @trainers.order("tname").each do |trainer| %>
+        <tr>
+          <td><%= trainer.tname %></td>
+          <% trainer.level = trainer.tokimons.size / 3 %>
+          <td><%= trainer.level %></td>
+          <td><%= link_to 'Show', trainer %></td>
+          <td><%= link_to 'Edit', edit_trainer_path(trainer) %></td>
+          <td><%= link_to 'Destroy', trainer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        </tr>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>&nbsp;</br>
 
 <%= link_to 'New Trainer', new_trainer_path %>

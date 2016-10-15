@@ -7,7 +7,7 @@
 
 <p>
   <strong>Tokimon 2:</strong>
-  <%= link_to Tokimon.find(@battle.tokimon1).name, tokimon_path(@battle.tokimon1) %>
+  <%= link_to Tokimon.find(@battle.tokimon2).name, tokimon_path(@battle.tokimon2) %>
 </p>
 
 <p>
@@ -15,5 +15,4 @@
   <%= link_to Tokimon.find(@battle.winner).name, tokimon_path(@battle.winner) %>
 </p>
 
-<%= link_to 'Edit', edit_battle_path(@battle) %> |
 <%= link_to 'Back', battles_path %>

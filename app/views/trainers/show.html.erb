@@ -10,13 +10,44 @@
   <%= @trainer.level %>
 </p>
 
-<p>
-  <strong>Tokimons:</strong>
-  <% (0..@trainer.tokimons.size-1).each do |i| %>
-    <% @trainer.tokimons[i].name %>
-    <%= link_to @trainer.tokimons[i].name, tokimon_path(@trainer.tokimons[i]) %>
-  <% end %>
-</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tokimons</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Fly</th>
+        <th>Fight</th>
+        <th>Fire</th>
+        <th>Water</th>
+        <th>Electric</th>
+        <th>Ice</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% (0..@trainer.tokimons.size-1).each do |i| %>
+      <tr>
+        <td>
+          <% @trainer.tokimons[i].name %>
+          <%= link_to @trainer.tokimons[i].name, tokimon_path(@trainer.tokimons[i]) %>
+        </td>
+        <td><%= @trainer.tokimons[i].weight %></td>
+        <td><%= @trainer.tokimons[i].height %></td>
+        <td><%= @trainer.tokimons[i].fly %></td>
+        <td><%= @trainer.tokimons[i].fight %></td>
+        <td><%= @trainer.tokimons[i].fire %></td>
+        <td><%= @trainer.tokimons[i].water %></td>
+        <td><%= @trainer.tokimons[i].electric %></td>
+        <td><%= @trainer.tokimons[i].ice %></td>
+        <td><%= @trainer.tokimons[i].total %></td>
+      </tr>
+      <% end %>
+
+
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_trainer_path(@trainer) %> |
 <%= link_to 'Back', trainers_path %>
