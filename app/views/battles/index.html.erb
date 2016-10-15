@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Battles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tokimon 1</th>
+      <th>Tokimon 2</th>
+      <th>Winner</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @battles.each do |battle| %>
+      <tr>
+        <td>
+          <%= link_to Tokimon.find(battle.tokimon1).name, tokimon_path(battle.tokimon1) %>
+        </td>
+        <td>
+          <%= link_to Tokimon.find(battle.tokimon2).name, tokimon_path(battle.tokimon2) %>
+        </td>
+        <td>
+          <%= link_to Tokimon.find(battle.winner).name, tokimon_path(battle.winner) %>
+        </td>
+        <td><%= link_to 'Show', battle %></td>
+        <td><%= link_to 'Edit', edit_battle_path(battle) %></td>
+        <td><%= link_to 'Destroy', battle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Battle', new_battle_path %>

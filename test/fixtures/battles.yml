@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tokimon1: 1
+  tokimon2: 1
+  winner: 1
+
+two:
+  tokimon1: 1
+  tokimon2: 1
+  winner: 1

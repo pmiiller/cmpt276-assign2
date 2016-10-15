@@ -5,11 +5,16 @@ class TokimonsController < ApplicationController
   # GET /tokimons.json
   def index
     @tokimons = Tokimon.all
+    @tokimons.each do |tokimon|
+      tokimon.total = tokimon.fly + tokimon.fight + tokimon.fire + tokimon.water + tokimon.electric + tokimon.ice
+    end
+
   end
 
   # GET /tokimons/1
   # GET /tokimons/1.json
   def show
+    @tokimon.total = @tokimon.fly + @tokimon.fight + @tokimon.fire + @tokimon.water + @tokimon.electric + @tokimon.ice
   end
 
   # GET /tokimons/new
@@ -71,6 +76,7 @@ class TokimonsController < ApplicationController
   # PATCH/PUT /tokimons/1
   # PATCH/PUT /tokimons/1.json
   def update
+    @tokimon.total = @tokimon.fly + @tokimon.fight + @tokimon.fire + @tokimon.water + @tokimon.electric + @tokimon.ice
     if @tokimon.trainer_id == nil
       respond_to do |format|
         @tokimon.destroy

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :battles
+  resources :battles
   resources :tokimons
   resources :trainers
   resources :people
